@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Datos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 0;
+        }
+        .container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            padding: 40px;
+        }
+        .page-title {
+            color: #667eea;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 2.5rem;
+        }
+        .table-container {
+            overflow-x: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .custom-table {
+            margin-bottom: 0;
+        }
+        .custom-table thead {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .custom-table thead th {
+            border: none;
+            padding: 15px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+        .custom-table tbody tr {
+            transition: all 0.3s ease;
+        }
+        .custom-table tbody tr:hover {
+            background-color: #f8f9ff;
+            transform: scale(1.01);
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.1);
+        }
+        .custom-table tbody td {
+            padding: 15px;
+            vertical-align: middle;
+            border-color: #e9ecef;
+        }
+        .badge {
+            padding: 6px 12px;
+            font-weight: 500;
+        }
+        a{
+            color: #e9ecef;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 class="page-title">Lista de Personas</h1>
+
+    <div class="table-container">
+        <table class="table table-hover custom-table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>dni</th>
+                <th>Edad</th>
+                <th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Ejemplo de fila - Aquí irán tus datos de Thymeleaf -->
+            <tr th:each="persona : ${personaLista}">
+                <td th:text="${persona.id}"></td>
+                <td th:text="${persona.nombre}"></td>
+                <td th:text="${persona.dni}"></td>
+                <td th:text="${persona.edad}"></td>
+                <td>
+                    <button class="btn btn-sm btn-primary"><a th:href="@{/personas/editar/{id}(id=${persona.id})}">Editar</a></button>
+                    <button class="btn btn-sm btn-danger"><a th:href="@{/personas/eliminar/{id}(id=${persona.id})}">Eliminar</a></button>
+                </td>
+            </tr>
+
+            </tbody>
+
+            <button class="btn btn-sm btn-primary"><a href="personas/nueva">Agregar Persona</a></button>
+            <br><br>
+        </table>
+
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
