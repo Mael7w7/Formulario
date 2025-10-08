@@ -41,5 +41,5 @@ Este enfoque facilita la comunicación entre el usuario y el sistema, permitiend
 ## 🧑‍💻 Autor
 
 **Ángel Hidalgo**  
-📧 [ange_lito2002@hotmail.com](mailto:ange_lito2002@hotmail.com)  
+📧 [hidalg0antonio2002@gmail.com](mailto:hidalg0antonio2002@gmail.com)  
 💼 Proyecto académico desarrollado con fines de aprendizaje.
